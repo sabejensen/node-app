@@ -9,7 +9,7 @@ function TeamWrap() {
     const [data, setData] = useState(false)
 
     useEffect(() => {
-        fetch("/new-team")
+        fetch(process.env.REACT_APP_API_URI + "/new-team")
           .then((res) => res.json())
           .then((data) => setData(data))
       }, []);

@@ -54,9 +54,9 @@ function TeamListing(props) {
                 setEdit(!edit)
             }}>Edit</button>
             <button className="team-button control-button" onClick={() => {
-                fetch('/delete-team', {
-                    method: 'delete',
-                    headers: { 'Content-Type': 'application/json' },
+                fetch((process.env.REACT_APP_API_URI + '/delete-team'), {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify({
                         id: props.id
                     })
@@ -85,7 +85,7 @@ function TeamListing(props) {
                 onClick={() => {
                     let newArray = [index.one, index.two, index.three, index.four, index.five, index.six]
                     console.log(newArray, currentName)
-                    fetch('/edit-team', {
+                    fetch((process.env.REACT_APP_API_URI + '/edit-team'), {
                         method: 'put',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({

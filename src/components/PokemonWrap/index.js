@@ -11,6 +11,8 @@ function PokemonWrap() {
 
     const rng = () => Math.floor(Math.random() * 151) + 1
 
+    let url = process.env.REACT_APP_API_URI + "/add-team"
+
     const [index1, setIndex1] = useState(rng)
     const [index2, setIndex2] = useState(rng)
     const [index3, setIndex3] = useState(rng)
@@ -29,10 +31,10 @@ function PokemonWrap() {
             <PokemonSelect index={index5} setIndex={setIndex5}/>
             <PokemonSelect index={index6} setIndex={setIndex6}/>
         </div>
-        <form className="team-form" action="/add-team" method="POST">
+        <form target="_blank" className="team-form" action={url} method="POST">
             <input style={{display: 'none'}} type="hidden" type="text" name="team" value={[index1, index2, index3, index4, index5, index6]} readOnly />
             <input className="team-input" type="text" name="title" value={name} onChange={(e) => {setName(e.target.value)}}/>
-            <button className="team-button" type="submit">Add Team</button>
+            <button className="team-button" type="submit" onclick={() => {window.location.reload(false)}}>Add Team</button>
         </form>
     </div>
   );

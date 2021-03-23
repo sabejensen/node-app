@@ -13,7 +13,7 @@ function App() {
   const [create, setCreate] = useState(true)
 
   useEffect(() => {
-    fetch("/api" + index.toString())
+    fetch(process.env.REACT_APP_API_URI + "/api" + index.toString())
       .then((res) => res.json())
       .then((data) => setData(data))
   }, [index]);

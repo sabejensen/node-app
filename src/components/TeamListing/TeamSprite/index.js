@@ -6,7 +6,7 @@ function TeamSprite(props) {
     const [img, setImg] = useState(false)
 
     useEffect(() => {
-            fetch("/api" + props.index)
+            fetch(process.env.REACT_APP_API_URI + "/api" + props.index)
             .then((res) => res.json())
             .then((data) => {
                 let rng = (Math.floor(Math.random() * 40) + 1); 

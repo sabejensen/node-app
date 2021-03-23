@@ -11,7 +11,7 @@ function PokemonSelect(props) {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    fetch("/api" + props.index.toString())
+    fetch(process.env.REACT_APP_API_URI + "/api" + props.index.toString())
       .then((res) => res.json())
       .then((data) => setData(data))
   }, [props.index]);
